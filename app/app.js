@@ -2,6 +2,8 @@ import SongList from './song-list';
 import SongForm from './song-form';
 import LoadingBar from './loading-bar';
 
+import { findAll } from './actions';
+
 export default class App {
   constructor(el, store) {
     this.el = el;
@@ -17,17 +19,6 @@ export default class App {
     this.songForm.mounted();
     this.loadingBar.mounted();
 
-    this.store.dispatch((dispatch) => {
-      dispatch({ type: 'SONGS@FINDALL_START' });
-
-      fetch('http://tiny-lr.herokuapp.com/collections/ryan-songs')
-        .then(r => r.json())
-        .then((data) => {
-          dispatch({
-            type: 'SONGS@FINDALL_COMPLETE',
-            data,
-          });
-        });
-    });
+    this.store.dispatch(findAll);
   }
 }

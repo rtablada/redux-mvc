@@ -1,3 +1,5 @@
+import { createSong } from './actions';
+
 export default class SongForm {
   constructor(el, store) {
     this.el = el;
@@ -25,27 +27,7 @@ export default class SongForm {
       };
       this.clearForm();
 
-      this.store.dispatch((dispatch) => {
-        dispatch({
-          type: 'SONGS@CREATE_START',
-          data: formValues,
-        });
-
-        fetch('http://tiny-lr.herokuapp.com/collections/ryan-songs', {
-          method: 'POST',
-          body: JSON.stringify(formValues),
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-        }).then(r => r.json())
-        .then((song) => {
-          dispatch({
-            type: 'SONGS@CREATE_COMPLETE',
-            data: song,
-          });
-        });
-      });
+      this.store.dispatch(createSong(formValues));
     });
   }
 }
