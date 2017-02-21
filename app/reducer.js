@@ -21,12 +21,12 @@ export default (state, { type, ...action }) => {
       return {
         ...state,
         fetching: false,
-        songs: state.songs.reduce((accum, curr) => {
+        songs: state.songs.map((curr) => {
           if (curr._id && curr._id !== action.data._id) {
-            return [...accum, curr];
+            return curr;
           }
 
-          return [...accum, action.data];
+          return action.data;
         }, []),
       };
     default:
