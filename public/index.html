@@ -11,24 +11,33 @@
       <div class="container">
         <h1 class="title">Songs I Like</h1>
 
-        <ul class="song-list panel is-fullwidth">
-          <li class="song-item panel-block">
-            <div class="level is-fullwidth">
-              <div class="level-left">
-                <h2 class="subtitle">
-                  <span class="song-item__title">Blank Space</span>
-                  <span class="song-item__artist">T Swift</span>
-                </h2>
-              </div>
+        <ul class="song-list panel is-fullwidth"></ul>
 
-              <div class="level-right">
-                <p class="subtitle is-6">
-                  BPM <span class="song-item__bpm">120</span>
-                </p>
-              </div>
+        <form action="" class="card new-song-card">
+          <header class="card-header">
+            <h3 class="card-header-title">Add a new Song</h3>
+          </header>
+
+          <fieldset class="card-content">
+            <div class="control">
+              <label for="song-name">Name</label>
+              <input type="text" placeholder="Name" id="song-name" song-param="name" class="input">
             </div>
-          </li>
-        </ul>
+            <div class="control">
+              <label for="song-artist">Artist</label>
+              <input type="text" placeholder="Artist" id="song-artist" song-param="artist" class="input">
+            </div>
+            <div class="control">
+              <label for="song-bpm">BPM</label>
+              <input type="text" placeholder="BPM" id="song-bpm" song-param="bpm" class="input">
+            </div>
+          </fieldset>
+
+          <div class="card-footer">
+            <button class="card-footer-item button is-light" type="button" song-action="cancel">Cancel</button>
+            <button class="card-footer-item button is-primary" song-action="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
