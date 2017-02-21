@@ -1,4 +1,5 @@
 import SongList from './song-list';
+import SongForm from './song-form';
 
 export default class App {
   constructor(el, store) {
@@ -6,10 +7,12 @@ export default class App {
     this.store = store;
 
     this.songList = new SongList(this.el.querySelector('.song-list'), store);
+    this.songForm = new SongForm(this.el.querySelector('.new-song-card'), store);
   }
 
   created() {
     this.songList.mounted();
+    this.songForm.mounted();
 
     this.store.dispatch((dispatch) => {
       dispatch({ type: 'SONGS@FETCH_STARTED' });
