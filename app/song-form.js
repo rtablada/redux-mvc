@@ -27,7 +27,7 @@ export default class SongForm {
 
       this.store.dispatch((dispatch) => {
         dispatch({
-          type: 'SONGS@CREATE_STARTED',
+          type: 'SONGS@CREATE_START',
           data: formValues,
         });
 
@@ -41,7 +41,7 @@ export default class SongForm {
         }).then(r => r.json())
         .then((song) => {
           dispatch({
-            type: 'SONGS@CREATE_SAVED',
+            type: 'SONGS@CREATE_COMPLETE',
             data: song,
           });
         });

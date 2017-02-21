@@ -11,13 +11,13 @@ export default (state, { type, ...action }) => {
         fetching: false,
         songs: action.data,
       };
-    case 'SONGS@CREATE_STARTED':
+    case 'SONGS@CREATE_START':
       return {
         ...state,
         fetching: true,
         songs: [...state.songs, action.data],
       };
-    case 'SONGS@CREATE_SAVED':
+    case 'SONGS@CREATE_COMPLETE':
       return {
         ...state,
         fetching: false,
