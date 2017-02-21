@@ -18,13 +18,13 @@ export default class App {
     this.loadingBar.mounted();
 
     this.store.dispatch((dispatch) => {
-      dispatch({ type: 'SONGS@FETCH_STARTED' });
+      dispatch({ type: 'SONGS@FINDALL_START' });
 
       fetch('http://tiny-lr.herokuapp.com/collections/ryan-songs')
         .then(r => r.json())
         .then((data) => {
           dispatch({
-            type: 'SONGS@UPDATE_MANY',
+            type: 'SONGS@FINDALL_COMPLETE',
             data,
           });
         });

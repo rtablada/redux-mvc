@@ -6,12 +6,12 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   (state, { type, ...action }) => {
     switch (type) {
-      case 'SONGS@FETCH_STARTED':
+      case 'SONGS@FINDALL_STARTED':
         return {
           ...state,
           fetching: true,
         };
-      case 'SONGS@UPDATE_MANY':
+      case 'SONGS@FINDALL_COMPLETE':
         return {
           ...state,
           fetching: false,
