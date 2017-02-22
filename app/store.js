@@ -4,10 +4,11 @@ import thunk from 'redux-thunk';
 import reducer from './reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const initialState = { songs: [], fetching: false };
 
 const store = createStore(
   reducer,
-  { songs: [], fetching: false },
+  initialState,
   composeEnhancers(
     applyMiddleware(thunk)
   )
