@@ -72,10 +72,7 @@ if (process.env.EMBER_ENV === 'test') {
   const testJs = new Rollup(testTree, {
     rollup: {
       entry: './tests/index-test.js',
-      plugins: [
-        nodeResolve({ jsnext: true, main: true }),
-        commonjs({ include: 'node_modules/**' }),
-      ],
+      plugins,
       targets: [{ dest: 'tests.js', format: 'iife', }]
     }
   });

@@ -2,7 +2,7 @@ import reducer from '../app/reducer';
 
 module('Reducer', () => {
   test('It has a default state', (assert) => {
-    const initialState = reducer(null, { type: '@@INIT' });
+    const initialState = reducer({ songs: null, fetching: null }, { type: '@@INIT' });
 
     assert.deepEqual(initialState, {
       songs: [], fetching: false,
